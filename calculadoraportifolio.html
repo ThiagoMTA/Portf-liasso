@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora html</title>
+</head>
+<body>
+
+  <h1>Calculadora</h1>
+
+  <p>
+    Valor 1:
+    <input type="number" id="valor1">
+  </p>
+
+  <p>
+    Operação:
+    <select id="operacao">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+  </p>
+
+  <p>
+    Valor 2:
+    <input type="number" id="valor2">
+  </p>
+
+  <p>
+    <button onclick="resolver()">Calcular</button>
+  </p>
+
+  <p id="resultado"></p>
+
+  <script>
+    function resolver() {
+      // Pega os valores
+      const v1 = parseFloat(document.getElementById("valor1").value);
+      const v2 = parseFloat(document.getElementById("valor2").value);
+      const op = document.getElementById("operacao").value;
+      let resultado;
+
+      // Verifica valores inválidos
+      if (isNaN(v1) || isNaN(v2)) {
+        resultado = "Digite dois números válidos.";
+      } else {
+        // Resolve a conta
+        switch (op) {
+          case "+":
+            resultado = v1 + v2;
+            break;
+          case "-":
+            resultado = v1 - v2;
+            break;
+          case "*":
+            resultado = v1 * v2;
+            break;
+          case "/":
+            resultado = v2 === 0 ? "Divisão por zero não é permitida." : v1 / v2;
+            break;
+        }
+      }
+
+      // print resultado
+      document.getElementById("resultado").innerText = "Resultado: " + resultado;
+    }
+  </script>
+
+  <header>
+    <!-- Lista de links das outras páginas -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Sobre mim</a></li>
+        <li><a href="portfolião.html">Portfólião</a></li>
+        <li><a href="formacao.html">Formação</a></li>
+        <li><a href="contact.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+</body>
+</html>
